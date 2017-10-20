@@ -9,9 +9,9 @@ RUN mkdir -p $CONDA_DIR && \
     apt-get install -y --no-install-recommends wget git libhdf5-dev g++ graphviz openmpi-bin libgl1 bzip2 && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/* && \
-    wget --no-check-certificate --quiet http://repo.continuum.io/miniconda/Miniconda3-4.3.30-Linux-x86_64.sh && \
-    /bin/bash /Miniconda3-4.3.30-Linux-x86_64.sh -f -b -p $CONDA_DIR && \
-    rm Miniconda3-4.3.30-Linux-x86_64.sh
+    wget --no-check-certificate --quiet http://repo.continuum.io/miniconda/Miniconda3-4.3.27-Linux-x86_64.sh && \
+    /bin/bash /Miniconda3-4.3.27-Linux-x86_64.sh -f -b -p $CONDA_DIR && \
+    rm Miniconda3-4.3.27-Linux-x86_64.sh
 
 ENV NB_USER keras
 ENV NB_UID 1000
