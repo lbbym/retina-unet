@@ -1,4 +1,4 @@
-FROM nvidia/cuda:8.0-cudnn6-devel
+FROM ubuntu:16.04
 
 LABEL maintainer="Alejandro Valdes <alejandrovaldes@live.com>"
 
