@@ -22,6 +22,13 @@ RUN useradd -m -s /bin/bash -N -u $NB_UID $NB_USER && \
     mkdir -p /src && \
     chown keras /src
 
+ADD theanorc /home/keras/.theanorc
+
+ADD kerasrc /home/keras/.keras/keras.json
+
+RUN chown keras /home/keras/.theanorc && \
+    chown keras /home/keras/.keras/keras.json
+
 USER keras
 
 # Python
@@ -41,13 +48,6 @@ RUN conda install -c menpo opencv3 && \
     pip install opencv-python
 
 RUN git clone git://github.com/alevalv/retina-unet.git /src
-
-ADD theanorc /home/keras/.theanorc
-
-ADD kerasrc /home/keras/.keras/keras.json
-
-RUN chown /home/keras/.theanorc && \
-    chown /home/keras/.keras/keras.json
 
 ENV PYTHONPATH='/src/:$PYTHONPATH'
 
