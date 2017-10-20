@@ -1,1 +1,4 @@
-image_dim_ordering: "th"
+{
+    "image_dim_ordering": "th",
+    "backend": "theano"
+}

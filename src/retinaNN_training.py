@@ -62,7 +62,7 @@ def get_unet(n_ch,patch_height,patch_width):
     ############
     conv7 = core.Activation('softmax')(conv6)
 
-    model = Model(input=inputs, output=conv7)
+    model = Model(output=conv7, input=inputs)
 
     # sgd = SGD(lr=0.01, decay=1e-6, momentum=0.3, nesterov=False)
     model.compile(optimizer='sgd', loss='categorical_crossentropy',metrics=['accuracy'])
@@ -187,7 +187,7 @@ checkpointer = ModelCheckpoint(filepath='./'+name_experiment+'/'+name_experiment
 # lrate_drop = LearningRateScheduler(step_decay)
 
 patches_masks_train = masks_Unet(patches_masks_train)  #reduce memory consumption
-model.fit(patches_imgs_train, patches_masks_train, nb_epoch=N_epochs, batch_size=batch_size, verbose=2, shuffle=True, validation_split=0.1, callbacks=[checkpointer])
+model.fit(patches_imgs_train, patches_masks_train, epochs=N_epochs, batch_size=batch_size, verbose=2, shuffle=True, validation_split=0.1, callbacks=[checkpointer])
 
 
 #========== Save and test the last model ===================
