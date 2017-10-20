@@ -9,7 +9,7 @@ RUN mkdir -p $CONDA_DIR && \
     echo export PATH=$CONDA_DIR/bin:'$PATH' > /etc/profile.d/conda.sh && \
     apt-get update && \
     apt-get install -y wget git libhdf5-dev g++ graphviz openmpi-bin libgl1 && \
-    wget --quiet https://repo.continuum.io/miniconda/Miniconda3-4.3.27-Linux-x86_64.sh -O miniconda.sh && \
+    wget --quiet https://repo.continuum.io/miniconda/Miniconda3-4.3.30-Linux-x86_64.sh -O miniconda.sh && \
     /bin/bash /miniconda.sh -f -b -p $CONDA_DIR && \
     rm miniconda.sh
 
@@ -31,11 +31,7 @@ RUN chown keras /home/keras/.theanorc && \
 
 USER keras
 
-# Python
-ARG python_version=3.5
-
-RUN conda install -y python=${python_version} && \
-    pip install --upgrade pip && \
+RUN pip install --upgrade pip && \
     #pip install tensorflow-gpu && \  #uncomment to install tensorflow support
     #pip install https://cntk.ai/PythonWheel/GPU/cntk-2.1-cp35-cp35m-linux_x86_64.whl && \ #uncomment to install CNTK support
     conda install Pillow scikit-learn notebook pandas matplotlib mkl nose pyyaml six h5py && \

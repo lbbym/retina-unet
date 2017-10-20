@@ -5,7 +5,7 @@ This image runs based on the nvidia/cuda image, it has [Keras](https://github.co
 To start the image you can use the following command
 
 ```bash
-docker run -it -v {path-to-DRIVE-dataset}:/src/DRIVE alevalv/retina-unet:latest bash
+docker run -it -v {path-to-DRIVE-dataset}:/src/DRIVE -e "OMP_NUM_THREADS=4" alevalv/retina-unet:latest /src/runner.sh
 ```
 
 ## TODO
