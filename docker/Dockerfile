@@ -1,4 +1,6 @@
-FROM nvidia/cuda:9.0-cudnn7-devel
+FROM nvidia/cuda:8.0-cudnn6-devel
+
+LABEL maintainer="Alejandro Valdes <alejandrovaldes@live.com>"
 
 ENV CONDA_DIR /opt/conda
 ENV PATH $CONDA_DIR/bin:$PATH
@@ -32,20 +34,18 @@ RUN chown keras /home/keras/.theanorc && \
 USER keras
 
 RUN pip --no-cache-dir install --upgrade pip && \
-    #pip install tensorflow-gpu && \  #uncomment to install tensorflow support
-    #pip install https://cntk.ai/PythonWheel/GPU/cntk-2.1-cp35-cp35m-linux_x86_64.whl && \ #uncomment to install CNTK support
-    conda install Pillow scikit-learn notebook pandas matplotlib mkl nose pyyaml six h5py && \
+    pip --no-cache-dir install tensorflow && \
+    #pip --no-cache-dir install https://cntk.ai/PythonWheel/GPU/cntk-2.2-cp36-cp36m-linux_x86_64.whl && \
+    conda install Pillow scikit-learn pandas matplotlib mkl nose pyyaml six h5py && \
     conda install theano pygpu bcolz && \
     pip --no-cache-dir install sklearn_pandas && \
-    pip --no-cache-dir install git+git://github.com/fchollet/keras.git && \
-    conda clean -yt
-
-RUN conda install -c menpo opencv3 && \
+    pip --no-cache-dir install keras && \
+    conda install -c menpo opencv3 && \
     pip --no-cache-dir install opencv-python && \
     conda clean -yt
 
 RUN git clone git://github.com/alevalv/retina-unet.git /src
 
-ENV PYTHONPATH='/src/:$PYTHONPATH'
+ENV KERAS_BACKEND tensorflow
 
 WORKDIR /src
