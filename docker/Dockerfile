@@ -34,7 +34,7 @@ RUN chown keras /home/keras/.theanorc && \
 USER keras
 
 RUN pip --no-cache-dir install --upgrade pip && \
-    pip --no-cache-dir install tensorflow && \
+    pip --no-cache-dir install tensorflow-gpu && \
     #pip --no-cache-dir install https://cntk.ai/PythonWheel/GPU/cntk-2.2-cp36-cp36m-linux_x86_64.whl && \
     conda install Pillow scikit-learn pandas matplotlib mkl nose pyyaml six h5py && \
     conda install theano pygpu bcolz && \
