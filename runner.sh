@@ -5,5 +5,5 @@ if [ ! -d "test" ]; then
 fi
 
 python prepare_datasets_DRIVE.py
-python src/retinaNN_training.py
+python run_training.py
 python run_testing.py
