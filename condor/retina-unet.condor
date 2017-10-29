@@ -10,4 +10,5 @@ environment             = "KERAS_BACKEND=tensorflow"
 output                  = ru-stdout.log
 error                   = ru-stderr.log
 log                     = ru.log
+request_memory          = 16384M
 queue 1

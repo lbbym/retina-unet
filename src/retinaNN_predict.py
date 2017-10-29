@@ -229,7 +229,7 @@ F1_score = f1_score(y_true, y_pred, labels=None, average='binary', sample_weight
 print("\nF1 score (F-measure): " +str(F1_score))
 
 #Save the results
-file_perf = open(path_experiment+'performances.txt', 'w')
+file_perf = open(path_experiment+'performreances.txt', 'w')
 file_perf.write("Area under the ROC curve: "+str(AUC_ROC)
                 + "\nArea under Precision-Recall curve: " +str(AUC_prec_rec)
                 + "\nJaccard similarity score: " +str(jaccard_index)
