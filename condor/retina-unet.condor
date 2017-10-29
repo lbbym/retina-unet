@@ -3,7 +3,7 @@ docker_image            = alevalv/retina-unet
 executable              = ./runner.sh
 # arguments               =
 should_transfer_files   = YES
-transfer_input_files    = runner.sh,configuration.txt,prepare_datasets_DRIVE.py,run_testing.py,src,lib,DRIVE
+transfer_input_files    = runner.sh,configuration.txt,prepare_datasets_DRIVE.py,run_training.py,run_testing.py,src,lib,DRIVE
 when_to_transfer_output = ON_EXIT
 transfer_output_files   = test
 environment             = "KERAS_BACKEND=tensorflow"
