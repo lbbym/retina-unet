@@ -1,6 +1,6 @@
 FROM ubuntu:16.04
 
-LABEL maintainer="Alejandro Valdes <alejandrovaldes@live.com>"
+LABEL maintainer="lbbym"
 
 ENV CONDA_DIR /opt/conda
 ENV PATH $CONDA_DIR/bin:$PATH
@@ -44,7 +44,7 @@ RUN pip --no-cache-dir install --upgrade pip && \
     pip --no-cache-dir install opencv-python && \
     conda clean -yt
 
-RUN git clone git://github.com/alevalv/retina-unet.git /src
+RUN git clone git@github.com:lbbym/retina-unet.git /src
 
 ENV KERAS_BACKEND tensorflow
 

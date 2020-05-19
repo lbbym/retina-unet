@@ -63,9 +63,9 @@ def get_datasets(imgs_dir,groundTruth_dir,borderMasks_dir,train_test="null"):
 
     print("imgs max: " +str(np.max(imgs)))
     print("imgs min: " +str(np.min(imgs)))
-    assert(np.max(groundTruth)==255 and np.max(border_masks)==255)
-    assert(np.min(groundTruth)==0 and np.min(border_masks)==0)
-    print("ground truth and border masks are correctly withih pixel value range 0-255 (black-white)")
+    # assert(np.max(groundTruth)==255 and np.max(border_masks)==255)
+    # assert(np.min(groundTruth)==0 and np.min(border_masks)==0)
+    # print("ground truth and border masks are correctly withih pixel value range 0-255 (black-white)")
     #reshaping for my standard tensors
     imgs = np.transpose(imgs,(0,3,1,2))
     assert(imgs.shape == (Nimgs,channels,height,width))
